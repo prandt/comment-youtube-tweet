@@ -10,4 +10,6 @@ Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de
 
 Essa token é referente a API_TOKEN da API do Twitter V2
 
+Não esqueça de trocar o nome do arquivo ".env.example" para ".env"
+
 
