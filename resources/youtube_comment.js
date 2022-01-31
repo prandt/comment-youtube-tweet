@@ -34,7 +34,7 @@ async function youtube_comment(comment, videoId) {
         }
 
         async function createOAuthClient(){
-            const credentials = require('./credentials/google-youtube.json')
+            const credentials = require('../credentials/google-youtube.json')
 
             const OAuthClient = new OAuth2(
                 credentials.web.client_id,

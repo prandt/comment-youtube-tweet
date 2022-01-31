@@ -2,7 +2,7 @@ const needle = require('needle');
 const { userName, hashTag } = require('../config.json')
 require('dotenv/config')
 
-const params = `query=from%3A${userName}%20${hashTag}&expansions=author_id`
+const params = `query=from%3A${userName}%20${hashTag}&expansions=author_id&tweet.fields=entities`
 const endpointURL = `https://api.twitter.com/2/tweets/search/recent?${params}`;
 
 const token = process.env.TOKEN;
@@ -30,7 +30,8 @@ async function get_tweet() {
         // tweets valídos (não foram utilizados) e quem contem apenas hashtag-link-texto
         // 
         const phrases = response.data[value].text.split(" ")
-        const linkVideo = phrases[1]
+        const linkVideo = response.data[value].entities.urls[0].expanded_url.split("=")[1]
+
         let comment = "";
         for (const text in phrases) {
             if (text > 1) {
